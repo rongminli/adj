@@ -1,11 +1,12 @@
 package site.lrm7.adj.leetcode;
-
+import java.util.Comparator;
 import site.lrm7.adj.datastructure.ListNode;
-import site.lrm7.adj.datastructure.priorityqueue.MinHeap;
+import site.lrm7.adj.datastructure.priorityqueue.Heap;
 
 public class LeetCode23 {
     public ListNode mergeKLists(ListNode[] lists) {
-        MinHeap heap = new MinHeap(lists.length);
+        Comparator<ListNode> cmp = (a,b) -> a.val - b.val;
+        Heap<ListNode> heap = new Heap(lists.length, cmp);
         for (ListNode h : lists) {
             if (h != null) {
                 heap.offer(h);

@@ -1,6 +1,10 @@
 package site.lrm7.adj.datastructure.queue;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
+
+import site.lrm7.adj.datastructure.priorityqueue.PriorityQueue2;
 
 class PriorityQueue2Test {
 

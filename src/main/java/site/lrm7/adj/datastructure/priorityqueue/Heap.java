@@ -1,18 +1,20 @@
 package site.lrm7.adj.datastructure.priorityqueue;
 
+import java.util.Comparator;
 
-public class Heap {
-    private int[] array;
+public class Heap<E> {
+    private E[] array;
     private int size;
-    private    Boolean max;
+    private Comparator<E>  cmp;
 
-    public Heap(int capacity, Boolean max) {
-        this.array = new int[capacity];
-        this.max = max;
+    @SuppressWarnings("unchecked")
+    public Heap(int capacity, Comparator<E> comparator) {
+        this.array = (E[]) new Object[capacity];
+        this.cmp = comparator;
     }
 
-    public Heap(int[] array,Boolean max) {
-        this.max = max;
+    public Heap(E[] array, Comparator<E> comparator) {
+        this.cmp = comparator;
         this.array = array;
         this.size = this.array.length;
         headify();
@@ -26,7 +28,7 @@ public class Heap {
         }
     }
 
-    public boolean offer(int offered) {
+    public boolean offer(E offered) {
         if (size == array.length) {
             grow();
         }
@@ -35,22 +37,19 @@ public class Heap {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
     private void grow() {
         int capacity = size + (size >> 1);
-        int[] newArray = new int[capacity];
+        E[] newArray = (E[]) new Object[capacity];
         System.arraycopy(array, 0,
                         newArray, 0, size);
         this.array = newArray;
     }
 
-    private Boolean compare(int v1, int v2) {
-        return (max ? v1 > v2 : v1 < v2);
-    }
-
-    private void up(int offered) {
+    private void up(E offered) {
         int child = size;
         int parent = (child - 1) / 2;
-        while (child > 0 && compare(offered, array[parent])) {
+        while (child > 0 && cmp.compare(offered, array[parent]) > 0) {
             array[child] = array[parent];
             child = parent;
             parent = (child - 1) / 2;
@@ -58,30 +57,30 @@ public class Heap {
         array[child] = offered;
     }
 
-    public int peek() {
+    public E peek() {
         if (size == 0) throw new RuntimeException();
         return array[0];
     }
 
-    public void replace(int replaced) {
+    public void replace(E replaced) {
         array[0] = replaced;
         down(0);
     }
 
-    public int poll(int index) {
-        int deleted = array[index];
+    public E poll(int index) {
+        E deleted = array[index];
         swap(index, size - 1);
         size--;
         down(index);
         return deleted;
     }
 
-    public int poll() {
-        if (isEmpty()) return 0;
+    public E poll() {
+        if (isEmpty()) return null;
         swap(0, size - 1);
         size--;
-        int result = array[size];
-        array[size] = 0;
+        E result = array[size];
+        array[size] = null;
         down(0);
         return result;
     }
@@ -90,10 +89,10 @@ public class Heap {
         int left = parent * 2 + 1;
         int right = left + 1;
         int max = parent;
-        if (left < size && compare(array[left], array[max])) {
+        if (left < size && cmp.compare(array[left], array[max]) > 0) {
             max = left;
         }
-        if (right < size && compare(array[right], array[max])) {
+        if (right < size && cmp.compare(array[left], array[max]) > 0) {
             max = right;
         }
         if (max != parent) {
@@ -103,7 +102,7 @@ public class Heap {
     }
 
     private void swap(int i, int j) {
-        int t = array[i];
+        E t = array[i];
         array[i] = array[j];
         array[j] = t;
 

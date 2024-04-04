@@ -7,18 +7,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Leetcode145 {
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode<Integer>  root) {
         List<Integer> result = new ArrayList<>();
-        LinkedList<TreeNode> stack = new LinkedList<>();
+        LinkedList<TreeNode<Integer> > stack = new LinkedList<>();
 
-        TreeNode curr = root;
-        TreeNode pop = null;
+        TreeNode<Integer>  curr = root;
+        TreeNode<Integer>  pop = null;
         while (!stack.isEmpty() || curr != null) {
             if(curr != null) {
                 stack.push(curr);
                 curr = curr.left;
             }else {
-                TreeNode peek = stack.peek();
+                TreeNode<Integer> peek = stack.peek();
                 if (peek.right == null) {
                     result.add(peek.val);
                     pop = stack.pop();

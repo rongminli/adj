@@ -7,20 +7,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Leetcode144 {
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal(TreeNode<Integer>  root) {
         List<Integer> array = new ArrayList<>();
 
         LinkedList<TreeNode> stack = new LinkedList<>();
         stack.push(root);
 
-        TreeNode curr = root;
+        TreeNode<Integer>  curr = root;
         while (!stack.isEmpty()) {
             if (curr != null) {
                 stack.push(curr);
                 array.add(curr.val);
                 curr = curr.left;
             }else {
-                TreeNode pop = stack.pop();
+                TreeNode<Integer>  pop = stack.pop();
                 array.add(pop.val);
                 curr = pop.right;
             }
