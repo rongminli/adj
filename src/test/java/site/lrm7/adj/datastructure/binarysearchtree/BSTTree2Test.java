@@ -89,4 +89,9 @@ public class BSTTree2Test extends TestCase {
         BSTTree2<Integer, String> tree = createTree();
         assertIterableEquals(List.of("盈利"), tree.greater(6));
     }
+
+    public void testBetween() {
+        BSTTree2<Integer, String> tree = createTree();
+        assertIterableEquals(List.of("说不得", "赵敏"), tree.between(4,6));
+    }
 }

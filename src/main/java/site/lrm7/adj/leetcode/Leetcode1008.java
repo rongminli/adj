@@ -12,9 +12,5 @@ import site.lrm7.adj.datastructure.queue.TreeNode;
  * 二叉树的 前序遍历 首先显示节点的值，然后遍历Node.left，最后遍历Node.right。
  */
 public class Leetcode1008 {
-    public TreeNode<Integer> bstFromPreorder(int[] preorder) {
 
-    }
-
-    private TreeNode
 }
