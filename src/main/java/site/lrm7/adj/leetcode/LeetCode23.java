@@ -6,7 +6,7 @@ import site.lrm7.adj.datastructure.priorityqueue.Heap;
 public class LeetCode23 {
     public ListNode mergeKLists(ListNode[] lists) {
         Comparator<ListNode> cmp = (a,b) -> a.val - b.val;
-        Heap<ListNode> heap = new Heap(lists.length, cmp);
+        Heap<ListNode> heap = new Heap<>(lists.length, cmp);
         for (ListNode h : lists) {
             if (h != null) {
                 heap.offer(h);

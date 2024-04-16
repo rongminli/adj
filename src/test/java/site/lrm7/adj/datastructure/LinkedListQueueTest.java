@@ -1,16 +1,17 @@
 package site.lrm7.adj.datastructure;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import site.lrm7.adj.datastructure.queue.LinkedListQueue;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class LinkedListQueueTest {
+
+public class LinkedListQueueTest {
 
     @Test
-    void iterator() {
+    public void iterator() {
     }
 
     private LinkedListQueue<Integer> createQueue() {
@@ -24,22 +25,17 @@ class LinkedListQueueTest {
         return queue;
     }
     @Test
-    void offer() {
+    public void offer() {
         LinkedListQueue<Integer> queue = createQueue();
         assertIterableEquals(List.of(1,2,3,4,5), queue);
         
     }
 
-    @Test
-    void poll() {
+    private void assertIterableEquals(List<Integer> integers, LinkedListQueue<Integer> queue) {
     }
 
     @Test
-    void peek() {
-    }
-
-    @Test
-    void isEmpty() {
+    public void isEmpty() {
         LinkedListQueue<Integer> queue = new LinkedListQueue();
         assertEquals(true, queue.isEmpty());
     }

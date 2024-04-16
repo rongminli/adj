@@ -1,13 +1,14 @@
 package site.lrm7.adj.leetcode;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class Leetcode105Test {
+
+public class Leetcode105Test {
 
     @Test
-    void evalRPN() {
+    public void evalRPN() {
         String[] tokens = new String[] {"2","1","+","3","*"};
         int result = Leetcode105.evalRPN(tokens);
         assertEquals(9, result);

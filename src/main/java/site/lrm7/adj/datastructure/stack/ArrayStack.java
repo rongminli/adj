@@ -1,7 +1,5 @@
 package site.lrm7.adj.datastructure.stack;
 
-import org.springframework.lang.NonNull;
-
 import java.util.Iterator;
 
 public class ArrayStack<E> implements Stack<E>, Iterable<E> {
@@ -43,7 +41,6 @@ public class ArrayStack<E> implements Stack<E>, Iterable<E> {
     }
 
     @Override
-    @NonNull
     public Iterator<E> iterator() {
         return new Iterator<E>() {
             int p = top;

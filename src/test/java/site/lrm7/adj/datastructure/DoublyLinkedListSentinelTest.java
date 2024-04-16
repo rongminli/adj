@@ -1,11 +1,12 @@
 package site.lrm7.adj.datastructure;
 
-import org.junit.jupiter.api.Test;
 
-class DoublyLinkedListSentinelTest {
+import org.junit.Test;
+
+public class DoublyLinkedListSentinelTest {
 
     @Test
-    void insert() {
+    public void insert() {
         DoublyLinkedListSentinel linkedList = new DoublyLinkedListSentinel();
         linkedList.insert(0, 0);
         linkedList.insert(0, 1);
@@ -25,7 +26,7 @@ class DoublyLinkedListSentinelTest {
         System.out.println(str.charAt(index));
     }
     @Test
-    void test1() {
+    public void test1() {
         System.out.println(jech(3));
         printstrrev("abcde", 0);
     }

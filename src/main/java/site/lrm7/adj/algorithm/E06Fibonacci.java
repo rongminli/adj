@@ -13,7 +13,5 @@ public class E06Fibonacci {
 
     public static void main(String[] args) {
         System.out.println(f(10));
-        Set<Integer> s = new HashSet<>();
-
     }
 }

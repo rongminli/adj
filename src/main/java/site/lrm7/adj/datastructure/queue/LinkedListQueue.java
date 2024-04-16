@@ -1,6 +1,5 @@
 package site.lrm7.adj.datastructure.queue;
 
-import org.springframework.lang.NonNull;
 import site.lrm7.adj.datastructure.priorityqueue.Queue;
 
 import java.util.Iterator;
@@ -35,7 +34,6 @@ public class LinkedListQueue<E> implements Queue<E>, Iterable<E> {
 
 
     @Override
-    @NonNull
     public Iterator<E> iterator() {
         return new Iterator<>() {
             Node<E> p = head.next;

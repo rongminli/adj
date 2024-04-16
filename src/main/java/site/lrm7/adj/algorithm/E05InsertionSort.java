@@ -4,12 +4,6 @@ public class E05InsertionSort {
     public static void sort(int[] a) {
         insertion(a, 1, a.length - 1);
     }
-
-    private static int find(int[] a, int i, int j, int target) {
-
-        return -1;
-    }
-
     private static void insertion(int[] a, int low, int height) {
         if (low == height) return;
 
@@ -52,9 +46,5 @@ public class E05InsertionSort {
         }
 
         return false;
-    }
-
-    public static void main(String[] args) {
-        int[] a = {1, 1, 2};
     }
 }
