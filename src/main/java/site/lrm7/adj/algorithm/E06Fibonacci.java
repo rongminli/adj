@@ -1,8 +1,5 @@
 package site.lrm7.adj.algorithm;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class E06Fibonacci {
 
     private static int f(int n) {
