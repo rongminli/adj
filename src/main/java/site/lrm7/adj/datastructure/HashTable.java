@@ -4,7 +4,6 @@ import com.google.common.hash.Hashing;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -160,7 +159,6 @@ public class HashTable {
         int[] sums = new int[table.length];
         for (int i = 0; i < table.length; i++) {
             Entry p = table[i];
-            int sum = 0;
             while (p!=null) {
                 sums[i] ++;
                 p = p.next;
